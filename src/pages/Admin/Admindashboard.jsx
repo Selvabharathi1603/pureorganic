@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Trash2, LogOut, PackagePlus, ListFilter } from "lucide-react";
 import { useStore } from "../../context/storecontext";
 
-export default function AdminDashboard({ onLogout }) {
+export default function Admindashboard({ onLogout }) {
   const { products, orders, addProduct, deleteProduct, updateOrderStatus } =
     useStore();
 
