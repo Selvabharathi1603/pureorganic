@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { StoreProvider } from "./context/storecontext";
 
 import ClientLayout from "./components/ClientLayout";
@@ -15,7 +15,7 @@ export default function App() {
     <StoreProvider>
       <Router>
         <Routes>
-          {/* 1. PUBLIC CLIENT STOREFRONT (Navbar + Drawer + Footer) */}
+          {/* Public Storefront */}
           <Route element={<ClientLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
@@ -23,8 +23,11 @@ export default function App() {
             <Route path="/track" element={<TrackOrder />} />
           </Route>
 
-          {/* 2. STANDALONE ADMIN PORTAL (No customer navbar/footer) */}
+          {/* Standalone Admin Portal */}
           <Route path="/admin" element={<AdminLogin />} />
+
+          {/* Fallback */}
+          <Route path="*" element={<Home />} />
         </Routes>
       </Router>
     </StoreProvider>
